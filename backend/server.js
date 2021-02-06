@@ -1,12 +1,14 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
+import errorHandler from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
-
 import productRoutes from './routes/productRoutes.js'
 
+// Load env vars
 dotenv.config()
 
+// Connect to database
 connectDB()
 
 const app = express()
@@ -16,6 +18,9 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/products', productRoutes)
+
+//errorHandler
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 

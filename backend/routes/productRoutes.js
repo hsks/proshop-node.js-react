@@ -26,7 +26,7 @@ router.get(
         if (product) {
             res.json(product)
         } else {
-            res.status(404).json({ message: 'Product not found' })
+            return  next(new ErrorResponse(`product did not find with id ${req.params.id}`),404)
         }
     })
 )
