@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { 
-        label 'ec2-fleet' 
+        label 'ec2' 
         image 'node:16.13.1-alpine' 
         }
     }
