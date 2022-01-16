@@ -11,5 +11,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'cd frontend'
+                sh 'npm install'
+            }
+        }        
     }
 }
